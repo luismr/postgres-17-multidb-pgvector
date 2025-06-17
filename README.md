@@ -16,6 +16,7 @@ This image extends the official Postgres image to support:
 - [Project Structure](#project-structure)
 - [Requirements](#requirements)
 - [Build and Run with Docker](#build-and-run-with-docker)
+- [Prebuilt Docker Image](#prebuilt-docker-image)
 - [Example Usage](#example-usage)
 - [Environment Variables](#environment-variables)
 - [Sidecar Database Logic](#sidecar-database-logic)
@@ -72,6 +73,20 @@ docker run -d \
 ```
 
 You can adjust the environment variables as needed.
+
+## Prebuilt Docker Image
+
+A prebuilt image is available on Docker Hub:
+
+[luismachadoreis/postgres-multidb-pgvector:pg17](https://hub.docker.com/repository/docker/luismachadoreis/postgres-multidb-pgvector/tags/pg17)
+
+You can pull and run it directly:
+
+```sh
+docker pull luismachadoreis/postgres-multidb-pgvector:pg17
+```
+
+Use this image in your `docker run` or `docker-compose.yml` as the base image.
 
 ## Example Usage
 
