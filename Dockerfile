@@ -14,13 +14,14 @@ ENV POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-pguserstrongpassword}
 ENV POSTGRES_DB=${POSTGRES_DB:-postgres} 
 ENV POSTGRES_DB_SIDECARS=${POSTGRES_DB_SIDECARS}
 
-COPY init-multidb.sh /docker-entrypoint-initdb.d/init-multidb.sh
-RUN chmod +x /docker-entrypoint-initdb.d/init-multidb.sh
-
 RUN apt-get update && \
     apt-get install -y build-essential postgresql-server-dev-17 git gettext && \
     git clone --branch v0.7.1 https://github.com/pgvector/pgvector.git && \
     cd pgvector && \
     make && \
     make install
+
+COPY init-multidb.sh /docker-entrypoint-initdb.d/init-multidb.sh
+COPY init-multidb.sql.template /docker-entrypoint-initdb.d/init-multidb.sql.template
+RUN chmod +x /docker-entrypoint-initdb.d/init-multidb.sh
 
