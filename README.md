@@ -62,8 +62,6 @@ docker build -t custom-postgres-multidb-pgvector .
 ```sh
 docker run -d \
   --name my-postgres \
-  -e POSTGRES_ADMIN=pgadmin \
-  -e POSTGRES_ADMIN_PASSWORD=mystrongpassword \
   -e POSTGRES_USER=pguser \
   -e POSTGRES_PASSWORD=pguserstrongpassword \
   -e POSTGRES_DB=postgres \
@@ -97,8 +95,6 @@ services:
   postgres:
     build: .
     environment:
-      POSTGRES_ADMIN: pgadmin
-      POSTGRES_ADMIN_PASSWORD: mystrongpassword
       POSTGRES_USER: pguser
       POSTGRES_PASSWORD: pguserstrongpassword
       POSTGRES_DB: postgres
@@ -114,8 +110,6 @@ volumes:
 ## Environment Variables
 | Variable                  | Default                | Description                                                                 |
 |---------------------------|------------------------|-----------------------------------------------------------------------------|
-| `POSTGRES_ADMIN`          | `pgadmin`              | Name of the admin (superuser) role to create                                |
-| `POSTGRES_ADMIN_PASSWORD` | `mystrongpassword`     | Password for the admin role                                                 |
 | `POSTGRES_USER`           | `pguser`               | Default user role (as in official image)                                    |
 | `POSTGRES_PASSWORD`       | `pguserstrongpassword` | Password for the default user                                               |
 | `POSTGRES_DB`             | `postgres`             | Default database (as in official image)                                     |

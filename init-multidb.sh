@@ -11,19 +11,6 @@ function wait_for_postgres() {
 
 # Only run on first init
 if [ "$1" = "postgres" ]; then
-  # Create admin user
-  echo "Creating admin user: $POSTGRES_ADMIN"
-  psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
-    DO
-    $$
-    BEGIN
-      IF NOT EXISTS (SELECT FROM pg_catalog.pg_roles WHERE rolname = '$POSTGRES_ADMIN') THEN
-        CREATE ROLE $POSTGRES_ADMIN WITH LOGIN SUPERUSER PASSWORD '$POSTGRES_ADMIN_PASSWORD';
-      END IF;
-    END
-    $$;
-EOSQL
-
   # Create sidecar DBs and users
   IFS=',' read -ra DBS <<< "$POSTGRES_DB_SIDECARS"
   for DB in "${DBS[@]}"; do
