@@ -1,0 +1,34 @@
+# Node, Python, and general
+node_modules/
+.env
+*.pyc
+__pycache__/
+*.log
+*.sqlite3
+*.db
+.DS_Store
+
+# Docker
+*.pid
+dist/
+build/
+
+# OS generated
+Thumbs.db
+.DS_Store
+
+# Editor folders
+.vscode/
+.idea/
+*.swp
+
+# Postgres
+*.sql~
+pgdata/
+*.dump
+*.backup
+
+# Misc
+*.tgz
+*.tar.gz
+*.zip 
