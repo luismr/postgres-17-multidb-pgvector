@@ -4,6 +4,8 @@
 ![Docker Compose 2.37.x](https://img.shields.io/badge/Docker--Compose-2.37.x-2496ED?logo=docker&logoColor=white&style=for-the-badge)
 ![Postgres 17](https://img.shields.io/badge/Postgres-17-green?logo=postgresql&logoColor=white&style=for-the-badge)
 ![pgvector 0.7.1](https://img.shields.io/badge/pgvector-0.7.1-green?logo=postgresql&logoColor=white&style=for-the-badge)
+![AMD64](https://img.shields.io/badge/Arch-amd64-blue?logo=linux&logoColor=white&style=for-the-badge)
+![ARM64](https://img.shields.io/badge/Arch-arm64-blue?logo=linux&logoColor=white&style=for-the-badge)
 
 This image extends the official Postgres image to support:
 - Dynamic creation of multiple databases and users at initialization
@@ -78,13 +80,16 @@ A prebuilt image is available on Docker Hub:
 
 [luismachadoreis/postgres-multidb-pgvector:pg17](https://hub.docker.com/repository/docker/luismachadoreis/postgres-multidb-pgvector/tags/pg17)
 
-You can pull and run it directly:
+- Use the `pg17` tag for AMD64 (x86_64) systems:
+  ```sh
+  docker pull luismachadoreis/postgres-multidb-pgvector:pg17
+  ```
+- Use the `pg17-arm64` tag for ARM64 (Apple Silicon, Raspberry Pi, etc):
+  ```sh
+  docker pull luismachadoreis/postgres-multidb-pgvector:pg17-arm64
+  ```
 
-```sh
-docker pull luismachadoreis/postgres-multidb-pgvector:pg17
-```
-
-Use this image in your `docker run` or `docker-compose.yml` as the base image.
+You can use the appropriate image in your `docker run` or `docker-compose.yml` as the base image for your platform.
 
 ## Example Usage
 
